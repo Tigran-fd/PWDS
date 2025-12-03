@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <title>🚫 Site Blocked<img src="../icons/icon48.png"/></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #494848 0%, #635f5f 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .danger-container {
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        border-radius: 8px;
+        align-items: center;
+    }
+
+    .danger-icon {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      color: #F50F0F;
+      font-size: 48px;
+      text-transform: uppercase;
+    }
+
+    .warning-text {
+      background: #F3E5F5;
+      padding: 20px;
+        border-radius: 8px;
+    }
+
+    .warning-text h2 {
+      color: #250137;
+      font-size: 24px;
+        text-align: center;
+    }
+
+    .warning-text ul {
+      list-style: none;
+    }
+
+    .warning-text li {
+      color: #38234c;
+      position: relative;
+      padding-top: 4px;
+    }
+
+    /*.warning-text li:before {*/
+    /*  content: "⚠️";*/
+    /*  position: absolute;*/
+    /*  left: 0;*/
+    /*  top: 0;*/
+    /*}*/
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-back {
+      background: linear-gradient(135deg, #33094a 0%, #5b1c97 100%);
+      color: white;
+    }
+
+    .btn-back:hover {
+      background: linear-gradient(135deg, #4A148C 0%, #6A1B9A 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+    }
+
+    .btn-home {
+      background: linear-gradient(135deg, #33094a 0%, #5b1c97 100%);
+      color: white;
+    }
+
+    .btn-home:hover {
+      background: linear-gradient(135deg, #7B68EE 0%, #6A1B9A 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+    }
+
+    .btn-report {
+      background: linear-gradient(135deg, #33094a 0%, #5b1c97 100%);
+      color: white;
+    }
+
+    .btn-report:hover {
+      background: linear-gradient(135deg, #AB47BC 0%, #6A1B9A 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+    }
+
+    .security-tip {
+      padding: 15px;
+      background: #F3E5F5;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #4A148C;
+    }
+
+    @media (max-width: 600px) {
+      .danger-container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="danger-container">
+    <div class="danger-icon">
+      <img src="/icons/PWDS128.png" alt="Danger">
+    </div>
+
+    <h1>DANGER !</h1>
+
+    <div class="warning-text">
+      <h2>SITE BLOCKED FOR YOUR PROTECTION</h2>
+      <ul>
+        <li>This website is in our suspicious sites database</li>
+        <li>It may contain malware, phishing, or scams</li>
+        <li>Your personal information could be at risk</li>
+        <li>Financial data could be stolen</li>
+        <li>Device could be infected with viruses</li>
+      </ul>
+    </div>
+
+
+    <div class="button-group">
+        <button class="btn btn-back flex gap-2" id="backButton">
+          <i class="fa-solid fa-arrow-left"></i>
+        Go Back
+      </button>
+
+      <button class="btn btn-home flex gap-2" id="homeButton">
+          <i class="fa-regular fa-house"></i>
+        Go to Homepage
+      </button>
+
+      <button class="btn btn-report flex gap-2" id="reportButton">
+          <i class="fa-regular fa-flag"></i>
+        Report False Positive
+      </button>
+    </div>
+
+    <div class="security-tip">
+      <strong>Security Tip:</strong> Always check the URL carefully before entering Web Page.
+    </div>
+  </div>
+
+  <script>
+      chrome.tabs.create({
+  url: chrome.runtime.getURL('blocked.html') + '?url=' + encodeURIComponent(blockedUrl)
+});
+
+      console.log("jghgjhjhhghjg")
+    // Получаем URL из параметров
+    const urlParams = new URLSearchParams(window.location.search);
+    const blockedUrl = urlParams.get('url') || 'Unknown website';
+
+    // Отображаем заблокированный URL
+    document.getElementById('blockedUrl').textContent = blockedUrl;
+
+    // Устанавливаем текущую дату и время
+    const now = new Date();
+    document.getElementById('timestamp').textContent =
+      `Blocked on: ${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+
+    // Кнопка "Назад"
+    document.getElementById('backButton').addEventListener('click', () => {
+      if (window.history.length > 1) {
+          console.log("back")
+        window.history.back();
+      } else {
+           console.log("google")
+        window.location.href = 'https://www.google.com';
+      }
+    });
+
+    // Кнопка "Домой"
+    document.getElementById('homeButton').addEventListener('click', () => {
+            console.log("homeButton")
+      window.location.href = 'https://www.google.com';
+    });
+
+    // Кнопка "Сообщить об ошибке"
+    document.getElementById('reportButton').addEventListener('click', () => {
+      const emailSubject = encodeURIComponent('False Positive Report - URL Checker Extension');
+      const emailBody = encodeURIComponent(
+        `I believe this website was blocked incorrectly:\n\n` +
+        `URL: ${blockedUrl}\n` +
+        `Blocked on: ${now.toLocaleString()}\n\n` +
+        `Reason for reporting: `
+      );
+
+      window.location.href = `mailto:admin@example.com?subject=${emailSubject}&body=${emailBody}`;
+
+      // Альтернативно, можно показать сообщение
+      alert('Thank you for reporting! The website will be reviewed by our security team.');
+    });
+
+    // Автоматическое предложение вернуться через 10 секунд
+    setTimeout(() => {
+      const goBack = confirm(
+        'This website is still blocked for your safety.\n\n' +
+        'Would you like to go back to the previous page?'
+      );
+      if (goBack && window.history.length > 1) {
+        window.history.back();
+      }
+    }, 10000);
+
+    // Запрещаем копирование URL (опционально)
+    document.addEventListener('copy', (e) => {
+      if (e.target.id === 'blockedUrl') {
+        alert('⚠️ Copying suspicious URLs is not recommended for security reasons.');
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>

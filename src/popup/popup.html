@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 400px;
+      padding: 16px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2d1b69 0%, #1a1a2e 100%);
+      color: #ffffff;
+    }
+    .input-section {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    #urlInput {
+      flex: 1;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #6d5fd3;
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 14px;
+    }
+    #urlInput::placeholder {
+      color: #b8b5e0;
+    }
+    #urlInput:focus {
+      outline: none;
+      border-color: #9d8ef1;
+      box-shadow: 0 0 0 2px rgba(157, 142, 241, 0.2);
+    }
+    button {
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #8a7cf0 0%, #6d5fd3 100%);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #9d8ef1 0%, #7a6ae6 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(109, 95, 211, 0.3);
+    }
+    button:active {
+      transform: translateY(0);
+    }
+    .result {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(157, 142, 241, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    h3 {
+      margin-top: 0;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 8px 0;
+      color: #e0e0e0;
+      font-size: 14px;
+    }
+    strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <h3>🔍 PWDS Security Checker</h3>
+
+  <div class="input-section">
+    <input type="text" id="urlInput" placeholder="Enter URL for checking">
+    <button id="checkButton">Check</button>
+  </div>
+
+  <div id="result" class="result" style="display: none;"></div>
+</body>
+</html>

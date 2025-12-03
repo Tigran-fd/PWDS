@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "PWDS URL Checker",
+  "version": "1.0.0",
+  "description": "Check URLs against database",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "webNavigation",
+    "notifications"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html", "icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Check URL",
+    "default_icon": {
+      "16": "icons/PWDS128.png",
+      "48": "icons/PWDS128.png",
+      "128": "icons/PWDS128.png"
+    }
+  },
+  "host_permissions": [
+    "http://localhost:5000/*"
+  ],
+  "icons": {
+    "16": "icons/PWDS128.png",
+    "48": "icons/PWDS128.png",
+    "128": "icons/PWDS128.png"
+  }
+}
