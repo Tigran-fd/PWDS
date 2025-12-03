@@ -9,8 +9,6 @@ A browser extension that protects users from accessing potentially harmful websi
 
     Suspicious Site Database: Maintains and updates a list of known malicious websites
 
-    Custom Block Rules: Users can add custom domains to block
-
     Multiple Threat Detection:
 
         Phishing websites
@@ -31,18 +29,9 @@ A browser extension that protects users from accessing potentially harmful websi
 
     Security Tips: Educational content about online safety
 
-⚙️ Customization Options
-
-    Whitelist management for trusted sites
-
-    Sensitivity adjustment (strict/medium/lenient)
-
-    Custom block/allow lists
-
-    Notification preferences
 
 🛠️ Installation
-For Chrome/Edge:
+For Chrome:
 
     Download the extension files
 
@@ -54,15 +43,6 @@ For Chrome/Edge:
 
     Select the extension folder
 
-For Firefox:
-
-    Open about:debugging
-
-    Click "This Firefox"
-
-    Click "Load Temporary Add-on"
-
-    Select the manifest.json file
 
 🔧 Configuration
 Basic Setup:
@@ -137,7 +117,7 @@ Resource Usage:
 
 Speed:
 
-    URL checking: <10ms
+    URL checking: <50ms
 
     Page loading: No noticeable delay
 
@@ -183,8 +163,8 @@ Development:
 
 📝 License
 
-MIT License - See LICENSE file for details
-🆘 Support
+MIT License - See LICENSE file for details 
+Support
 Common Issues:
 
     Site incorrectly blocked: Use "Report False Positive"
